@@ -1,8 +1,8 @@
 # ProbaV Challenge submission
 
 Pytorch implementation of a [Proba V ESA competition](https://kelvins.esa.int/proba-v-super-resolution/home/) submission, reaching a score of 0.990704683785194 over the whole training set. 
-Implementation based on FSRCNN. 
-This code uses the [`embiggen`](https://github.com/lfsimoes/probav) module specifically made for this competition.
+Implementation based on [FSRCNN](https://arxiv.org/pdf/1608.00367.pdf). 
+This code uses the [`embiggen`](https://github.com/lfsimoes/probav) module, which was specifically made for this competition.
 
 The `PROBAV report.pdf` contains a detailed rundown of this submission.
 
