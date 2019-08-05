@@ -1,7 +1,7 @@
 import argparse
 from training import Solver
 from os import listdir
-
+import dataprocess
 
 def main(FLAGS):
     net = Solver(FLAGS)
@@ -9,9 +9,11 @@ def main(FLAGS):
     if FLAGS.train:
         net.Train()
     else:
-        net.EvaluateScore()
+        return net.EvaluateScore()
+        
     
-    
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
@@ -19,11 +21,14 @@ if __name__ == '__main__':
     parser.add_argument('--cuda', type=bool, default=True, help="run the following code on a GPU")
     parser.add_argument('--gpu', type=int, default=0, help="id of the GPU to utilize")
     
-    parser.add_argument('--train', type=bool, default=False, help="train or evaluation mode")
-    parser.add_argument('--batch_size', type=int, default=10, help="batch size for training")
-    parser.add_argument('--data_path', type=str, default='../data/probav_data/', help="Path to image data")
+    parser.add_argument('--train', dest='train', action='store_true', help="Trains the network")
+    parser.add_argument('--eval', dest='train', action='store_false', help="Evaluates the network over the whole trainset")
+    parser.set_defaults(train = True)
     
-    parser.add_argument('--initial_learning_rate', type=float, default=0.001, help="starting learning rate")
+    parser.add_argument('--batch_size', type=int, default=10, help="batch size for training")
+    parser.add_argument('--data_path', type=str, default='data/', help="Path to image data")
+    
+    parser.add_argument('--learning_rate', type=float, default=0.001, help="learning rate")
     parser.add_argument('--beta_1', type=float, default=0.9, help="default beta_1 val for adam")
     parser.add_argument('--beta_2', type=float, default=0.999, help="default beta_2 val for adam")
     
@@ -33,4 +38,4 @@ if __name__ == '__main__':
         
         
     FLAGS = parser.parse_args()
-    main(FLAGS)
+    all_scores = main(FLAGS)

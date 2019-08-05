@@ -70,6 +70,7 @@ class Solver(object):
         self.loader = cycle(DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True, num_workers=0, drop_last=True))
         
     
+    
     def Train(self):
         
         X = torch.DoubleTensor(self.batch_size, 2, 128, 128)  #Stores input batch
@@ -122,6 +123,7 @@ class Solver(object):
             # save model every epochs
             torch.save(self.model.state_dict(), os.path.join(self.save_folder, 'model'+str(self.epoch)))
                 
+            
                 
     #Evaluate the loaded model on the whole training set (as test set ground truth is not available)
     def EvaluateScore(self):    
@@ -143,7 +145,8 @@ class Solver(object):
         S /= len(all_scores)
         
         print("Average score over whole train set: " + str(S))
-            
+        return all_scores
+        
         
     #Generates a grid with Super Resolved and High Resolution images side by side to visualize training
     def Reconstruction(self, hr, sr, path='./exemples/reconstruction.png', nrow=4):

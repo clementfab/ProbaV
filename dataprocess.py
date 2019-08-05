@@ -3,7 +3,7 @@ import os
 from embiggen import *
 
 
-DATA_PATH = '../data/probav_data/'
+DATA_PATH = 'data/'
 
 train_paths = all_scenes_paths(DATA_PATH + 'train/')
 test_paths = all_scenes_paths(DATA_PATH + 'test/')

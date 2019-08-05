@@ -7,13 +7,12 @@ class SRModel(torch.nn.Module):
     def __init__(self, d=64, s=16, m=8):
         super(SRModel, self).__init__()
 
-        # Feature extraction
         self.first_part = nn.Sequential(
             nn.Conv2d(in_channels=2, out_channels=d, kernel_size=5, stride=1, padding=2),
             nn.PReLU())
 
+
         self.layers = []
-        # Shrinking
         self.layers.append(nn.Sequential(nn.Conv2d(in_channels=d, out_channels=s, kernel_size=1, stride=1, padding=0),
                                          nn.PReLU()))
         # Non-linear Mapping
@@ -27,7 +26,8 @@ class SRModel(torch.nn.Module):
 
         self.mid_part = torch.nn.Sequential(*self.layers)
 
-        # Deconvolution
+
+        # Upscaling through deconvolution
         self.last_part = nn.ConvTranspose2d(in_channels=d, out_channels=1, kernel_size=9, stride=3, padding=3)
 
 
