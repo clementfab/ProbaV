@@ -4,6 +4,7 @@ Pytorch implementation of a [Proba V ESA competition](https://kelvins.esa.int/pr
 Implementation based on FSRCNN. 
 This code use the [`embiggen`](https://github.com/lfsimoes/probav) module specifically made for this competition.
 
+The `PROBAV report.pdf` contains a detailed rundown of this submission.
 
 
 #### Preping [data](https://kelvins.esa.int/proba-v-super-resolution/data/) and aggregating images
