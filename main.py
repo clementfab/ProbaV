@@ -1,7 +1,6 @@
 import argparse
 from training import Solver
-from os import listdir
-import dataprocess
+
 
 def main(FLAGS):
     net = Solver(FLAGS)
@@ -12,7 +11,6 @@ def main(FLAGS):
         return net.EvaluateScore()
         
     
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

@@ -25,7 +25,7 @@ class Solver(object):
         self.batch_size = FLAGS.batch_size
         self.data_path = FLAGS.data_path
         
-        self.learning_rate = FLAGS.initial_learning_rate
+        self.learning_rate = FLAGS.learning_rate
         self.beta1 = FLAGS.beta_1
         self.beta2 = FLAGS.beta_2
         
@@ -127,6 +127,7 @@ class Solver(object):
                 
     #Evaluate the loaded model on the whole training set (as test set ground truth is not available)
     def EvaluateScore(self):    
+        
         self.model.eval()
         
         all_scores = []
