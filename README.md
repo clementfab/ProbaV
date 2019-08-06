@@ -6,6 +6,7 @@ This code uses the [`embiggen`](https://github.com/lfsimoes/probav) module, whic
 
 The `PROBAV report.pdf` contains a detailed rundown of this submission.
 
+Training with default settings should take about 4 hours on an Nvidia Tesla V100-SXM2 GPU. The `environment.txt` file includes the version of the modules with which this code ran with.
 
 #### Preping [data](https://kelvins.esa.int/proba-v-super-resolution/data/) and aggregating images
 
